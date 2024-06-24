@@ -27,6 +27,7 @@ X = cv.fit_transform(X)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 model = MultinomialNB(alpha = 0.2, fit_prior = True)
 model_next = SVC(kernel = "rbf", decision_function_shape = "ovo", random_state=42)
+# // decision_function_shape = "ovr", gives same 84.48% model score
 model.fit(X_train,y_train)
 model_next.fit(X_train,y_train)
 score = model.score(X_test,y_test)
